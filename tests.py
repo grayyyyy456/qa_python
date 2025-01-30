@@ -61,7 +61,6 @@ class TestBooksCollector:
     def test_add_book_in_favorites(self):
         collector = BooksCollector()
         collector.add_new_book('Мартин Иден')
-        collector.set_book_genre('Мартин Иден', 'Комедии')
         collector.add_book_in_favorites('Мартин Иден')
         favorites_books = collector.get_list_of_favorites_books()
         assert favorites_books == ['Мартин Иден']
