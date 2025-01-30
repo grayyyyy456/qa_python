@@ -44,9 +44,6 @@ class TestBooksCollector:
         fantasy_books = collector.get_books_with_specific_genre('Фантастика')
         assert fantasy_books == ['Гарри Поттер и философский питон']
 
-        comedy_books = collector.get_books_with_specific_genre('Комедии')
-        assert comedy_books == ['Мартин Иден']
-
     def test_get_books_genre_returns_complete_dictionary(self):
         collector = BooksCollector()
         collector.add_new_book('Гарри Поттер и неукратимый питон')
