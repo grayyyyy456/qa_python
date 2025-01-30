@@ -27,7 +27,7 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Гарри Поттер и неукратимый питон')
         collector.set_book_genre('Гарри Поттер и неукратимый питон', 'Ужасы')
-        assert collector.books_genre['Гарри Поттер и неукратимый питон'] == 'Ужасы'
+        assert collector.get_book_genre('Гарри Поттер и неукратимый питон') == 'Ужасы'
 
     def test_only_set_book_genre(self):
         collector = BooksCollector()
