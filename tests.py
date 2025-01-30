@@ -1,4 +1,6 @@
+import pytest
 from main import BooksCollector
+
 
 # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
 # обязательно указывать префикс Test
@@ -22,6 +24,7 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+
 
     def test_set_and_get_book_genre(self):
         collector = BooksCollector()
@@ -58,12 +61,13 @@ class TestBooksCollector:
         children_books = collector.get_books_for_children()
         assert children_books == ['Гарри Поттер и повелитель питонов']
 
-    def test_add_book_in_favorites(self):
+    @pytest.mark.parametrize('book_title', ['Мартин Иден', 'Преступление и наказание', 'Ежевичное вино'])
+    def test_add_book_in_favorites(self, book_title):
         collector = BooksCollector()
-        collector.add_new_book('Мартин Иден')
-        collector.add_book_in_favorites('Мартин Иден')
+        collector.add_new_book(book_title)
+        collector.add_book_in_favorites(book_title)
         favorites_books = collector.get_list_of_favorites_books()
-        assert favorites_books == ['Мартин Иден']
+        assert favorites_books == [book_title]
 
     def test_delete_book_from_favorites(self):
         collector = BooksCollector()
